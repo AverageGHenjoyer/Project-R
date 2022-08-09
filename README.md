@@ -1,5 +1,5 @@
 # Project-R
-program to refresh a website until it leads correctly (personal use)
+program to refresh a website until it loads correctly (personal use)
 
 WORK IN PROGRESS!!!
 
