@@ -8,5 +8,5 @@ Program to refresh a website until it loads correctly (personal use)
 4. Presses F5 button until the coulor is desired 
 5. Turn off upon detecting wanted color
 
-#Might require some .dll files (will check and update)
+#Might require some .dll files (will check and update so it doesn't)
 
