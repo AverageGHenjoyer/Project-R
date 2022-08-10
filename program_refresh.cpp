@@ -26,12 +26,12 @@ int main(int argc, char** argv)
 		std::cout << _green << ", ";    //Print RGB values on cursor postion
 		std::cout << _blue<<std::endl;
                 
-                if (_red == 212 && _green == 19 && _blue == 24) // enter RGB values u want program to close on detecting
+                if (_red == 24 && _green == 24 && _blue == 24) // enter RGB values u want program to close on detecting
                 {
                         return 0;
                 }
 
-                if (_red == 24 && _green == 24 && _blue == 24) // enter RGB values u want program to press F5
+                if (_red == 212 && _green == 19 && _blue == 24) // enter RGB values u want program to press F5
                 {
 			std::cout<<"Key Pressed"<<std::endl;
 			Sleep(500);
