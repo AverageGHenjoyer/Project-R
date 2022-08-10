@@ -26,19 +26,24 @@ int main(int argc, char** argv)
 				std::cout << _red<< ", ";
 				std::cout << _green << ", ";
 				std::cout << _blue<<std::endl;
+                
+
+
+                if (_red == 212 && _green == 19 && _blue == 24)
+                {
+                        return 0;
+                }
 
                 if (_red == 24 && _green == 24 && _blue == 24)
                 {
                     
 			            std::cout<<"Key Pressed"<<std::endl;
-			            Sleep(10);
-			            system("CLS");
 			            Sleep(500);
 			            keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
 			            Sleep(1);
 			            keybd_event(VK_F5, 0, KEYEVENTF_KEYUP, 0);
                         Sleep(2000);
-                }
+                } 
             }
             FreeLibrary(_hGDI);
         }
