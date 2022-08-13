@@ -29,13 +29,13 @@ int funkcja_refresh(int _red,int _green,int _blue, int& i, int& refresh){
     
     if (_red == 24 && _green == 24 && _blue == 24) // enter RGB values u want program to close on detecting
                 {
-                        std::cout << "strona załadowana"<<std::endl;
+                        std::cout << "strona zaladowana"<<std::endl;
                         refresh = 0;
                 }
 
                 if (_red == 212 && _green == 19 && _blue == 24) // enter RGB values u want program to press F5
                 {
-			            std::cout<<"Key Pressed'high traffic'"<<std::endl;
+			            std::cout<<"Key Pressed 'high traffic'"<<std::endl;
 			            Sleep(500);
 			            keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
 			            Sleep(1);
@@ -45,7 +45,7 @@ int funkcja_refresh(int _red,int _green,int _blue, int& i, int& refresh){
                 
                 if (_red == 32 && _green == 33 && _blue == 36) // enter RGB values u want program to press F5
                 {
-			            std::cout<<"Key Pressed "<<std::endl;
+			            std::cout<<"Key Pressed F5 "<<std::endl;
 			            Sleep(500);
 			            keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
 			            Sleep(1);
@@ -59,7 +59,7 @@ int funkcja_refresh(int _red,int _green,int _blue, int& i, int& refresh){
                     std::cout << i << std::endl;
                     if (i == 550)
                     {
-                        std::cout<<"Key Pressed 'witryna nieosiogalna'"<<std::endl;
+                        std::cout<<"Key Pressed F5 'witryna nieosiogalna'"<<std::endl;
 			            Sleep(500);
 			            keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
 			            Sleep(1);
@@ -76,7 +76,7 @@ int i = 0;
 int refresh = 1;
 int coal;
 
-std::cout<< "Wybierz opcję dodania do koszyka: " << std::endl;
+std::cout<< "Wybierz opcje dodania do koszyka: " << std::endl;
 std::cout<< "1. Pieklorz Ekogroszek" << std::endl;
 std::cout<< "2. Karlik Ekogroszek" << std::endl;
 //add more for more options
@@ -90,6 +90,7 @@ std::cout<< "2 ";
 Sleep(1000);
 std::cout<< "1 ";
 Sleep(1000);
+std::cout << std::endl;
     HINSTANCE _hGDI = LoadLibrary("gdi32.dll");
     if(_hGDI)
     {
@@ -125,10 +126,15 @@ Sleep(1000);
                     {
                     case 1:
                         DownClick(10);
+                        Sleep(250);
+                        LeftClick(1350,375);
+                        Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
+                        LeftClick(1350,420);     //1410  1350
+                        Sleep(250);              //375   420
                         LeftClick(1410,375);
                         return 0;
                     break;
-                
+
                     default:
                     break;
                     } 
