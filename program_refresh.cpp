@@ -5,6 +5,26 @@
 
 typedef WINAPI COLORREF (*GETPIXEL)(HDC, int, int);
 
+void DownClick(int j){
+    for (size_t i = 0; i < j; i++)
+    {
+        std::cout<<"Key down Pressed "<<std::endl;
+		Sleep(50);
+		keybd_event(VK_DOWN, 0, KEYEVENTF_EXTENDEDKEY, 0);
+		Sleep(1);
+		keybd_event(VK_DOWN, 0, KEYEVENTF_KEYUP, 0);
+        Sleep(50);
+    }
+    
+}
+
+void LeftClick(int x,int y)
+{
+	SetCursorPos(x,y);
+	mouse_event(MOUSEEVENTF_LEFTDOWN,x,y,0,0);
+	mouse_event(MOUSEEVENTF_LEFTUP,x,y,0,0);
+}
+
 int funkcja_refresh(int _red,int _green,int _blue, int& i, int& refresh){
     
     if (_red == 24 && _green == 24 && _blue == 24) // enter RGB values u want program to close on detecting
@@ -54,7 +74,22 @@ int main(int argc, char** argv)
 {
 int i = 0;
 int refresh = 1;
-int opcja = 1;
+int coal;
+
+std::cout<< "Wybierz opcję dodania do koszyka: " << std::endl;
+std::cout<< "1. Pieklorz Ekogroszek" << std::endl;
+std::cout<< "2. Karlik Ekogroszek" << std::endl;
+//add more for more options
+std::cin >> coal;
+
+std::cout<< "start za: ";
+Sleep(250);
+std::cout<< "3 ";
+Sleep(1000);
+std::cout<< "2 ";
+Sleep(1000);
+std::cout<< "1 ";
+Sleep(1000);
     HINSTANCE _hGDI = LoadLibrary("gdi32.dll");
     if(_hGDI)
     {
@@ -74,27 +109,30 @@ int opcja = 1;
 				//std::cout << _green << ", ";    //Print RGB values on cursor postion
 				//std::cout << _blue<<std::endl;
                 //std::cout <<std::endl;
-                //std::cout << _cursor.x << ", "<<_cursor.y <<std::endl;
+                std::cout << _cursor.x << ", "<<_cursor.y <<std::endl;
                 if (refresh == 1)
                 {
                     funkcja_refresh(_red, _green, _blue, i, refresh);
                 }
                 
-                //poziom 1410 dodaj do koszyka
+                //poziom 1410 dodaj do koszyka // 375 pion 1 opcja po 10 strzałek w dół
                 //poziom 1360 zmien ilość ton
                 //27 rodzaji
-                if (opcja == 1) 
+
+                if (refresh == 0)
                 {
-			            std::cout<<"Key down Pressed "<<std::endl;
-			            Sleep(50);
-			            keybd_event(VK_DOWN, 0, KEYEVENTF_EXTENDEDKEY, 0);
-			            Sleep(1);
-			            keybd_event(VK_DOWN, 0, KEYEVENTF_KEYUP, 0);
-                        Sleep(50);
+                   switch (coal)
+                    {
+                    case 1:
+                        DownClick(10);
+                        LeftClick(1410,375);
+                        return 0;
+                    break;
+                
+                    default:
+                    break;
+                    } 
                 }
-
-
-
             }
             FreeLibrary(_hGDI);
         }
