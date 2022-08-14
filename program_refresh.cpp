@@ -214,3 +214,4 @@ std::cin >> opcja;
     }
     return 0;
 }
+// TODO add comments, add more user preferences etc
