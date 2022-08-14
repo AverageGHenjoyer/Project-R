@@ -1,4 +1,4 @@
-# Project-R
+# Project-R (Refresh sklep.pgg.pl)
 Program to refresh a website until it loads correctly, and adds wanted items to shoping cart, it is made specifically for sklep.pgg.pl website
 (personal use)
 
