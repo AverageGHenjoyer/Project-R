@@ -7,6 +7,7 @@ Program to refresh a website until it loads correctly, and adds wanted items to 
 - Make sure you are logged in on a sklep.pgg.pl website
 - Enter website so it is visible on a fullscreen (not F11)
 - Make sure that web browser window is active (click anywhere on it)
+- Scroll website max to the top
 - Dont move your mouse while program is working
 
 # Usage
