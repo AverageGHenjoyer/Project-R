@@ -75,22 +75,12 @@ int main(int argc, char** argv)
 int i = 0;
 int refresh = 1;
 int coal;
-
-std::cout<< "Wybierz opcje dodania do koszyka: " << std::endl;
-std::cout<< "1. Pieklorz Ekogroszek" << std::endl;
-std::cout<< "2. Karlik Ekogroszek" << std::endl;
-//add more for more options
-std::cin >> coal;
-
-std::cout<< "start za: ";
-Sleep(250);
-std::cout<< "3 ";
-Sleep(1000);
-std::cout<< "2 ";
-Sleep(1000);
-std::cout<< "1 ";
-Sleep(1000);
-std::cout << std::endl;
+int opcja;
+std::cout << "Wybierz opcje dzialania programu:"<< std::endl;
+std::cout<< "1. Tylko odswierzanie" << std::endl;
+std::cout<< "2. Odswierzanie z dodawaniem do koszyka" << std::endl;
+std::cin >> opcja;
+//system("cls");
     HINSTANCE _hGDI = LoadLibrary("gdi32.dll");
     if(_hGDI)
     {
@@ -110,17 +100,59 @@ std::cout << std::endl;
 				//std::cout << _green << ", ";    //Print RGB values on cursor postion
 				//std::cout << _blue<<std::endl;
                 //std::cout <<std::endl;
-                std::cout << _cursor.x << ", "<<_cursor.y <<std::endl;
-                if (refresh == 1)
-                {
-                    funkcja_refresh(_red, _green, _blue, i, refresh);
-                }
-                
+                //Sleep(2500);
+                //std::cout << _cursor.x << ", "<<_cursor.y <<std::endl;
+                //Sleep(2500);
+                //std::cout << _cursor.x << ", "<<_cursor.y <<std::endl
+
                 //poziom 1410 dodaj do koszyka // 375 pion 1 opcja po 10 strzałek w dół
                 //poziom 1360 zmien ilość ton
                 //27 rodzaji
+                
+                switch (opcja)
+                {
+                case 1:
+                std::cout<< "start za: ";
+                Sleep(250);
+                std::cout<< "3 ";
+                Sleep(1000);
+                std::cout<< "2 ";
+                Sleep(1000);
+                std::cout<< "1 ";
+                Sleep(1000);
+                std::cout << std::endl;
+                    if (refresh == 1)
+                    {
+                    funkcja_refresh(_red, _green, _blue, i, refresh);
+                    }
+                    return 0;
+                break;
 
-                if (refresh == 0)
+                case 2:
+
+                std::cout<< "Wybierz opcje dodania do koszyka: " << std::endl;
+                std::cout<< "1. Pieklorz Ekogroszek Paleta 1000 kg" << std::endl;
+                std::cout<< "2. Karlik Ekogroszek Paleta 1000 kg" << std::endl;
+                std::cout<< "3. Karlik Ekogroszek Paleta 750 kg" << std::endl;
+                std::cout<< "4. Karlik Ekogroszek Big Bag 1000 kg" << std::endl;
+                //add more for more options
+                std::cin >> coal;
+
+                std::cout<< "start za: ";
+                Sleep(250);
+                std::cout<< "3 ";
+                Sleep(1000);
+                std::cout<< "2 ";
+                Sleep(1000);
+                std::cout<< "1 ";
+                Sleep(1000);
+                std::cout << std::endl;
+                    if (refresh == 1)
+                    {
+                    funkcja_refresh(_red, _green, _blue, i, refresh);
+                    }
+
+                    if (refresh == 0)
                 {
                    switch (coal)
                     {
@@ -134,10 +166,47 @@ std::cout << std::endl;
                         LeftClick(1410,375);
                         return 0;
                     break;
+                    case 2:
+                        DownClick(13);
+                        Sleep(250);
+                        LeftClick(1350,375);
+                        Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
+                        LeftClick(1350,420);     //1410  1350
+                        Sleep(250);              //375   420
+                        LeftClick(1410,375);    //120 pixeli w dół następne opcje
+                        return 0;
+                    break;
+
+                    case 3:
+                        DownClick(16);
+                        Sleep(250);
+                        LeftClick(1350,375);
+                        Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
+                        LeftClick(1350,420);     //1410  1350
+                        Sleep(250);              //375   420
+                        LeftClick(1410,375);    //120 pixeli w dół następne opcje
+                        return 0;
+                    break;
+
+                    case 4:
+                        DownClick(19);
+                        Sleep(250);
+                        LeftClick(1350,375);
+                        Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
+                        LeftClick(1350,420);     //1410  1350
+                        Sleep(250);              //375   420
+                        LeftClick(1410,375);    //120 pixeli w dół następne opcje
+                        return 0;
+                    break;
 
                     default:
                     break;
                     } 
+                }
+                break;
+                
+                default:
+                    break;
                 }
             }
             FreeLibrary(_hGDI);
