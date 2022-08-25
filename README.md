@@ -2,6 +2,8 @@
 Program to refresh a website until it loads correctly, and adds wanted items to shoping cart, it is made specifically for sklep.pgg.pl website
 (personal use)
 
+#WILL WORK ON IT A LOT THIS WEEKEND 27/28-08-2022
+
 # Setup
 - If you have two monitors, place your browser on the first one (probably left)
 - Make sure you are logged in on a sklep.pgg.pl website
