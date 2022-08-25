@@ -26,48 +26,82 @@ void LeftClick(int x,int y)
 }
 
 int funkcja_refresh(int _red,int _green,int _blue, int& i, int& refresh){
-    
-    if (_red == 24 && _green == 24 && _blue == 24) // enter RGB values u want program to close on detecting
-                {
-                        std::cout << "strona zaladowana"<<std::endl;
-                        refresh = 0;
-                }
 
-                if (_red == 212 && _green == 19 && _blue == 24) // enter RGB values u want program to press F5
-                {
-			            std::cout<<"Key Pressed 'high traffic'"<<std::endl;
-			            Sleep(500);
-			            keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
-			            Sleep(1);
-			            keybd_event(VK_F5, 0, KEYEVENTF_KEYUP, 0);
-                        Sleep(5000);
-                }
-                
-                if (_red == 32 && _green == 33 && _blue == 36) // enter RGB values u want program to press F5
-                {
-			            std::cout<<"Key Pressed F5 "<<std::endl;
-			            Sleep(500);
-			            keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
-			            Sleep(1);
-			            keybd_event(VK_F5, 0, KEYEVENTF_KEYUP, 0);
-                        Sleep(5000);
-                }
-            
-                if (_red == 255 && _green == 255 && _blue == 255) // enter RGB values u want program to press F5
-                {                    
-                    i = i+1;
-                    std::cout << i << std::endl;
-                    if (i == 550)
-                    {
-                        std::cout<<"Key Pressed F5 'witryna nieosiogalna'"<<std::endl;
-			            Sleep(500);
-			            keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
-			            Sleep(1);
-			            keybd_event(VK_F5, 0, KEYEVENTF_KEYUP, 0);
-                        Sleep(5000);
-                        i = 0;
-                    }
-                }
+    if (_red == 24 && _green == 24 && _blue == 24) // enter RGB values u want program to close on detecting
+    {
+        std::cout << "strona zaladowana"<<std::endl;
+        refresh = 0;
+    }
+
+    if (_red == 212 && _green == 19 && _blue == 24) // enter RGB values u want program to press F5
+    {
+		std::cout<<"Key Pressed 'high traffic'"<<std::endl;
+		Sleep(500);
+		keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
+		Sleep(1);
+		keybd_event(VK_F5, 0, KEYEVENTF_KEYUP, 0);
+        Sleep(5000);
+    }   
+
+    if (_red == 32 && _green == 33 && _blue == 36) // enter RGB values u want program to press F5
+    {
+	    std::cout<<"Key Pressed F5 "<<std::endl;
+	    Sleep(500);
+	    keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
+	    Sleep(1);
+	    keybd_event(VK_F5, 0, KEYEVENTF_KEYUP, 0);
+        Sleep(5000);
+    }
+
+    if (_red == 255 && _green == 255 && _blue == 255) // enter RGB values u want program to press F5
+    {                    
+        i = i+1;
+        //std::cout << i << std::endl;
+        if (i == 550)
+        {
+            std::cout<<"Key Pressed F5 'witryna nieosiogalna'"<<std::endl;
+	        Sleep(500);
+	        keybd_event(VK_F5, 0, KEYEVENTF_EXTENDEDKEY, 0);
+	        Sleep(1);
+	        keybd_event(VK_F5, 0, KEYEVENTF_KEYUP, 0);
+            Sleep(5000);
+            i = 0;
+        }
+    }
+}
+
+void SelectProduct(int ilosc, int coal){ // CHNAGED NIE DIAŁĄ ZŁA WYSOKOSC
+if (ilosc == 2)
+{
+    DownClick(10+(coal*3)-3);      
+    Sleep(250);
+    LeftClick(1350,375);     //1350 405
+    Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
+    LeftClick(1350,420);     //1410  1350
+    Sleep(250);              //375   420
+    LeftClick(1410,375);
+}
+else if (ilosc == 1)
+{
+    DownClick(10+(coal*3)-3);
+    Sleep(250);
+    LeftClick(1350,375);
+    Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
+    LeftClick(1350,405);     //1410  1350
+    Sleep(250);              //375   420
+    LeftClick(1410,375);
+}
+}
+
+void logowanie(int _red,int _green,int _blue, int& i, int& refresh){
+    refresh = 1;
+    LeftClick(1580, 145); //1580 145
+    Sleep(500);
+    funkcja_refresh(_red, _green, _blue, i, refresh);
+    Sleep(500);
+    LeftClick(875, 675); 
+    Sleep(500);
+    
 }
 
 int main(int argc, char** argv)
@@ -76,21 +110,65 @@ int i = 0;
 int refresh = 1;
 int coal;
 int opcja;
+int ilosc;
 std::cout << "Wybierz opcje dzialania programu:"<< std::endl;
 std::cout<< "1. Tylko odswierzanie" << std::endl;
-std::cout<< "2. Odswierzanie z dodawaniem do koszyka" << std::endl;
+std::cout<< "2. Odswierzanie z dodawaniem do koszyka NIE DZIAŁA" << std::endl;
+//std::cout<< "3. Logowanie" << std::endl;
+                
 std::cin >> opcja;
-//system("cls");
-    HINSTANCE _hGDI = LoadLibrary("gdi32.dll");
+
+switch (opcja)
+{
+case 1:
+std::cout<< "start za: ";
+Sleep(250);
+std::cout<< "3 ";
+Sleep(1000);
+std::cout<< "2 ";
+Sleep(1000);
+std::cout<< "1 ";
+Sleep(1000);
+std::cout << std::endl;
+    break;
+case 2:
+std::cout<< "Wybierz opcje dodania do koszyka: " << std::endl;
+std::cout<< "1. Pieklorz Ekogroszek Paleta 1000 kg" << std::endl;
+std::cout<< "2. Karlik Ekogroszek Paleta 1000 kg" << std::endl;
+std::cout<< "3. Karlik Ekogroszek Paleta 750 kg" << std::endl;
+std::cout<< "4. Karlik Ekogroszek Big Bag 1000 kg" << std::endl;
+//add more for more options
+std::cin >> coal;
+
+std::cout<< "Wybierz ilosc " << std::endl;
+std::cout<< "1. 1 " << std::endl;
+std::cout<< "2. 2 " << std::endl;
+//add more for more options
+std::cin >> ilosc;
+
+std::cout<< "start za: ";
+Sleep(250);
+std::cout<< "3 ";
+Sleep(1000);
+std::cout<< "2 ";
+Sleep(1000);
+std::cout<< "1 ";
+Sleep(1000);
+std::cout << std::endl;
+    break;
+default:
+    break;
+}
+	HINSTANCE _hGDI = LoadLibrary("gdi32.dll");
     if(_hGDI)
     {
         while(true) { 
             GETPIXEL pGetPixel = (GETPIXEL)GetProcAddress(_hGDI, "GetPixel");
-            HDC _hdc = GetDC(NULL);
+            HDC _hdc = ::GetDC(NULL);
             if(_hdc)
             {
-                POINT _cursor;
-                GetCursorPos(&_cursor); //Get cursor position
+                //POINT _cursor;
+                //GetCursorPos(&_cursor); //Get cursor position
                 COLORREF _color = (*pGetPixel) (_hdc, 820, 130); //_cursor.x, _cursor.y); // 2 monitor 2800, 170);
                 int _red = GetRValue(_color);
                 int _green = GetGValue(_color);
@@ -102,113 +180,83 @@ std::cin >> opcja;
                 //std::cout <<std::endl;
                 //Sleep(2500);
                 //std::cout << _cursor.x << ", "<<_cursor.y <<std::endl;
-                //Sleep(2500);
-                //std::cout << _cursor.x << ", "<<_cursor.y <<std::endl
+                //Sleep(2500);                                              /Write out cursos pos
+                //std::cout << _cursor.x << ", "<<_cursor.y <<std::endl;
 
                 //poziom 1410 dodaj do koszyka // 375 pion 1 opcja po 10 strzałek w dół
                 //poziom 1360 zmien ilość ton
                 //27 rodzaji
                 
+                
+
                 switch (opcja)
                 {
                 case 1:
-                std::cout<< "start za: ";
-                Sleep(250);
-                std::cout<< "3 ";
-                Sleep(1000);
-                std::cout<< "2 ";
-                Sleep(1000);
-                std::cout<< "1 ";
-                Sleep(1000);
-                std::cout << std::endl;
+                
                     if (refresh == 1)
                     {
                     funkcja_refresh(_red, _green, _blue, i, refresh);
                     }
-                    return 0;
+                    if (refresh == 0)
+                    {
+                        return 0;
+                    }
                 break;
-
                 case 2:
-
-                std::cout<< "Wybierz opcje dodania do koszyka: " << std::endl;
-                std::cout<< "1. Pieklorz Ekogroszek Paleta 1000 kg" << std::endl;
-                std::cout<< "2. Karlik Ekogroszek Paleta 1000 kg" << std::endl;
-                std::cout<< "3. Karlik Ekogroszek Paleta 750 kg" << std::endl;
-                std::cout<< "4. Karlik Ekogroszek Big Bag 1000 kg" << std::endl;
-                //add more for more options
-                std::cin >> coal;
-
-                std::cout<< "start za: ";
-                Sleep(250);
-                std::cout<< "3 ";
-                Sleep(1000);
-                std::cout<< "2 ";
-                Sleep(1000);
-                std::cout<< "1 ";
-                Sleep(1000);
-                std::cout << std::endl;
+                
                     if (refresh == 1)
                     {
                     funkcja_refresh(_red, _green, _blue, i, refresh);
                     }
 
                     if (refresh == 0)
-                {
+                    {
                    switch (coal)
                     {
                     case 1:
-                        DownClick(10);
-                        Sleep(250);
-                        LeftClick(1350,375);
-                        Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
-                        LeftClick(1350,420);     //1410  1350
-                        Sleep(250);              //375   420
-                        LeftClick(1410,375);
+                        SelectProduct(ilosc, coal);
                         return 0;
                     break;
                     case 2:
-                        DownClick(13);
-                        Sleep(250);
-                        LeftClick(1350,375);
-                        Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
-                        LeftClick(1350,420);     //1410  1350
-                        Sleep(250);              //375   420
-                        LeftClick(1410,375);    //120 pixeli w dół następne opcje
+                        SelectProduct(ilosc, coal);
                         return 0;
                     break;
-
                     case 3:
-                        DownClick(16);
-                        Sleep(250);
-                        LeftClick(1350,375);
-                        Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
-                        LeftClick(1350,420);     //1410  1350
-                        Sleep(250);              //375   420
-                        LeftClick(1410,375);    //120 pixeli w dół następne opcje
+                        SelectProduct(ilosc, coal);
                         return 0;
                     break;
-
                     case 4:
-                        DownClick(19);
-                        Sleep(250);
-                        LeftClick(1350,375);
-                        Sleep(250);              // zmiana ilosci ton 1350 //625 zeby zienic na 2 tony bez spacji //420 zeby zmienic tony na 2
-                        LeftClick(1350,420);     //1410  1350
-                        Sleep(250);              //375   420
-                        LeftClick(1410,375);    //120 pixeli w dół następne opcje
+                        SelectProduct(ilosc, coal);
                         return 0;
                     break;
 
                     default:
                     break;
                     } 
-                }
+                    }
                 break;
-                
+                /*case 3:
+                    std::cout<< "start za: ";
+                    Sleep(250);
+                    std::cout<< "3 ";
+                    Sleep(1000);
+                    std::cout<< "2 ";
+                    Sleep(1000);
+                    std::cout<< "1 ";
+                    std::cout << std::endl;
+                    Sleep(1000);
+                    GetCursorPos(&_cursor);
+                    std::cout << _cursor.x << ", "<<_cursor.y <<std::endl;
+                    Sleep(2500);                                            
+                    std::cout << _cursor.x << ", "<<_cursor.y <<std::endl;
+                    logowanie(_red ,_green ,_blue ,i , refresh);
+                    return 0;
+                break;*/
                 default:
                     break;
                 }
             }
+            ReleaseDC(NULL, _hdc);
             FreeLibrary(_hGDI);
         }
     }
