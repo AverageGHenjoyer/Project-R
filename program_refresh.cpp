@@ -149,7 +149,7 @@ std::cout << std::endl;
 default:
     break;
 }
-	HINSTANCE _hGDI = LoadLibrary(L"gdi32.dll");
+	HINSTANCE _hGDI = LoadLibrary("gdi32.dll");
     if(_hGDI)
     {
         while(true) { 
