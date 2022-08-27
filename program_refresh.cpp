@@ -123,10 +123,10 @@ std::cout << std::endl;
     break;
 case 2:
 std::cout<< "Wybierz opcje dodania do koszyka: " << std::endl;
-std::cout<< "1. Pieklorz Ekogroszek Paleta 1000 kg (50 worków x 20 kg)" << std::endl;
-std::cout<< "2. Karlik Ekogroszek Paleta 1000 kg (50 worków x 20 kg)" << std::endl;
-std::cout<< "3. Karlik Ekogroszek Paleta 750 kg (30 worków x 25 kg)" << std::endl;
-std::cout<< "4. Karlik Ekogroszek Big Bag 1000 kg (węgiel luzem)" << std::endl;
+std::cout<< "1. Pieklorz Ekogroszek Paleta 1000 kg (50 workow x 20 kg)" << std::endl;
+std::cout<< "2. Karlik Ekogroszek Paleta 1000 kg (50 workow x 20 kg)" << std::endl;
+std::cout<< "3. Karlik Ekogroszek Paleta 750 kg (30 workow x 25 kg)" << std::endl;
+std::cout<< "4. Karlik Ekogroszek Big Bag 1000 kg (wegiel luzem)" << std::endl;
 //add more for more options
 std::cin >> coal;
 
