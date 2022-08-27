@@ -2,7 +2,6 @@
 Program to refresh a website until it loads correctly, and adds wanted items to shoping cart, it is made specifically for sklep.pgg.pl website
 (personal use)
 
-#WILL WORK ON IT A LOT THIS WEEKEND 27/28-08-2022
 
 # Setup
 - If you have two monitors, place your browser on the first one (probably left)
@@ -15,14 +14,12 @@ Program to refresh a website until it loads correctly, and adds wanted items to 
 
 
 # Usage
-DO NOT USE OPTION 2 (pixels are off)
 To buy products from this website efficiently you will have to most likely do it in two steps.
 1. Use program on a option 2 ("2. Odswierzanie z dodawaniem do koszyka") while refreshing addres "sklep.pgg.pl" just to add items to the cart
 If first step was succesful then proced to step 2
-2. Use program on a option 1 ("1. Tylko odswierzanie") while refreshing addres "sklep.pgg.pl/koszyk" to try and actually buy the product
+2. You have to finallize the transaction later that day
 
 # Important for option 2
-Program automaticly selects to add 2000kg of produt to the cart right now (will be changed to match users preferences)
 Program only has 4 options to choose from for now
 
 # WHAT THE CODE DOES:
@@ -34,7 +31,6 @@ Program only has 4 options to choose from for now
 5. Click that option
 6. Turn off
 
-#Might require some .dll files (will check and update so it doesn't)
 #32bit build
 //TODO add comments, add more user preference options
 //WIP gui in Qt
