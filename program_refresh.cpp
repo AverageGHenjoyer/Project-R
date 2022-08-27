@@ -11,7 +11,7 @@ void DownClick(int j){
         std::cout<<"Key down Pressed "<<std::endl;
 		Sleep(50);
 		keybd_event(VK_DOWN, 0, KEYEVENTF_EXTENDEDKEY, 0);
-		Sleep(1);
+		Sleep(10);
 		keybd_event(VK_DOWN, 0, KEYEVENTF_KEYUP, 0);
         Sleep(50);
     }
@@ -79,7 +79,7 @@ if (ilosc == 2)
     Sleep(250);
     LeftClick(1350,440);      // 1350, 440 working 28-08-2022
     Sleep(250);              
-    LeftClick(1350,420);     
+    LeftClick(1350,485);     
     Sleep(250);              
     LeftClick(1410,440);
 }
@@ -95,6 +95,44 @@ else if (ilosc == 1)
 }
 }
 
+void MistakeOption(int& opcja){
+if (opcja > 2 || opcja < 1)
+{
+    std::cout << "Wybierz Poprawna opcje!"<< std::endl;
+    std::cout << "Wybierz opcje dzialania programu:"<< std::endl;
+    std::cout<< "1. Tylko odswierzanie" << std::endl;
+    std::cout<< "2. Odswierzanie z dodawaniem do koszyka" << std::endl;    
+    std::cin >> opcja;
+    MistakeOption(opcja);
+}
+}
+
+void MistakeCoal(int& coal){
+if (coal > 4 || coal < 1)
+{
+    std::cout << "Wybierz Poprawna opcje!"<< std::endl;
+    std::cout<< "Wybierz opcje dodania do koszyka: " << std::endl;
+    std::cout<< "1. Pieklorz Ekogroszek Paleta 1000 kg (50 workow x 20 kg)" << std::endl;
+    std::cout<< "2. Karlik Ekogroszek Paleta 1000 kg (50 workow x 20 kg)" << std::endl;
+    std::cout<< "3. Karlik Ekogroszek Paleta 750 kg (30 workow x 25 kg)" << std::endl;
+    std::cout<< "4. Karlik Ekogroszek Big Bag 1000 kg (wegiel luzem)" << std::endl;
+    std::cin >> coal;
+    MistakeCoal(coal);
+}
+}
+
+void Mistakeilosc(int& ilosc){
+if (ilosc > 2 || ilosc < 1)
+{
+    std::cout << "Wybierz Poprawna opcje!"<< std::endl;
+    std::cout<< "Wybierz ilosc " << std::endl;
+    std::cout<< "1. 1 " << std::endl;
+    std::cout<< "2. 2 " << std::endl;
+    std::cin >> ilosc;
+    Mistakeilosc(ilosc);
+}
+}
+
 int main(int argc, char** argv)
 {
 int i = 0;
@@ -104,9 +142,10 @@ int opcja;
 int ilosc;
 std::cout << "Wybierz opcje dzialania programu:"<< std::endl;
 std::cout<< "1. Tylko odswierzanie" << std::endl;
-std::cout<< "2. Odswierzanie z dodawaniem do koszyka" << std::endl;
-                
+std::cout<< "2. Odswierzanie z dodawaniem do koszyka" << std::endl;                
 std::cin >> opcja;
+
+MistakeOption(opcja);
 
 switch (opcja)
 {
@@ -129,12 +168,14 @@ std::cout<< "3. Karlik Ekogroszek Paleta 750 kg (30 workow x 25 kg)" << std::end
 std::cout<< "4. Karlik Ekogroszek Big Bag 1000 kg (wegiel luzem)" << std::endl;
 //add more for more options
 std::cin >> coal;
+MistakeCoal(coal);
 
 std::cout<< "Wybierz ilosc " << std::endl;
 std::cout<< "1. 1 " << std::endl;
 std::cout<< "2. 2 " << std::endl;
 //add more for more options
 std::cin >> ilosc;
+Mistakeilosc(ilosc);
 
 std::cout<< "start za: ";
 Sleep(250);
@@ -181,7 +222,7 @@ default:
                     {
                     funkcja_refresh(_red, _green, _blue, i, refresh);
                     }
-                    if (refresh == 0)
+                    else if (refresh == 0)
                     {
                         return 0;
                     }
@@ -192,8 +233,7 @@ default:
                     {
                     funkcja_refresh(_red, _green, _blue, i, refresh);
                     }
-
-                    if (refresh == 0)
+                    else if (refresh == 0)
                     {
                    switch (coal)
                     {
