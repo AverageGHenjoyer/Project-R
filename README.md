@@ -17,7 +17,8 @@ Program to refresh a website until it loads correctly, and adds wanted items to 
 To buy products from this website efficiently you will have to most likely do it in two steps.
 1. Use program on a option 2 ("2. Odswierzanie z dodawaniem do koszyka") while refreshing addres "sklep.pgg.pl" just to add items to the cart
 If first step was succesful then proced to step 2
-2. You have to finallize the transaction later that day
+2. Refresh "sklep.pgg.pl/koszyk of something like that after the product was added
+3. You have to finallize the transaction later that day
 
 # Important for option 2
 Program only has 4 options to choose from for now
