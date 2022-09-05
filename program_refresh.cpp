@@ -73,26 +73,31 @@ int funkcja_refresh(int _red,int _green,int _blue, int& i, int& refresh){
 }
 
 void SelectProduct(int ilosc, int coal){ 
+/*
 if (ilosc == 2)
 {
-    DownClick(10+(coal*3)-3);      
-    Sleep(250);
-    LeftClick(1350,440);      // 1350, 440 working 28-08-2022
-    Sleep(250);              
-    LeftClick(1350,485);     
-    Sleep(250);              
+    //DownClick(10+(coal*3)-3);      // Comented because site turned off ability to change ammount of products to add to cart || look at
+    //Sleep(250);
+    //LeftClick(1350,440);      // 1350, 440 working 28-08-2022
+    //Sleep(250);              
+    //LeftClick(1350,485);     
+    //Sleep(250);              
     LeftClick(1410,440);
 }
 else if (ilosc == 1)
 {
-    DownClick(10+(coal*3)-3);
-    Sleep(250);
-    LeftClick(1350,440);
-    Sleep(250);              
-    LeftClick(1350,470);     
-    Sleep(250);              
+    //DownClick(10+(coal*3)-3); 
+    //Sleep(250);
+    //LeftClick(1350,440);
+    //Sleep(250);              
+    //LeftClick(1350,470);     
+    //Sleep(250);              
     LeftClick(1410,440);
 }
+*/
+Sleep(250); 
+DownClick(10+(coal*3)-3); 
+LeftClick(1410,440);
 }
 
 void MistakeOption(int& opcja){
@@ -120,7 +125,8 @@ if (coal > 4 || coal < 1)
     MistakeCoal(coal);
 }
 }
-
+// Comented because site turned off ability to change ammount of products to add to cart
+/*
 void Mistakeilosc(int& ilosc){
 if (ilosc > 2 || ilosc < 1)
 {
@@ -132,7 +138,7 @@ if (ilosc > 2 || ilosc < 1)
     Mistakeilosc(ilosc);
 }
 }
-
+*/
 int main(int argc, char** argv)
 {
 int i = 0;
@@ -170,12 +176,13 @@ std::cout<< "4. Karlik Ekogroszek Big Bag 1000 kg (wegiel luzem)" << std::endl;
 std::cin >> coal;
 MistakeCoal(coal);
 
-std::cout<< "Wybierz ilosc " << std::endl;
-std::cout<< "1. 1 " << std::endl;
-std::cout<< "2. 2 " << std::endl;
-//add more for more options
-std::cin >> ilosc;
-Mistakeilosc(ilosc);
+// Comented because site turned off ability to change ammount of products to add to cart
+//std::cout<< "Wybierz ilosc " << std::endl;
+//std::cout<< "1. 1 " << std::endl;
+//std::cout<< "2. 2 " << std::endl;
+//add more for more options 
+//std::cin >> ilosc;
+//Mistakeilosc(ilosc);
 
 std::cout<< "start za: ";
 Sleep(250);
