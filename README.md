@@ -21,7 +21,7 @@ If first step was succesful then proced to step 2
 3. You have to finallize the transaction later that day
 
 # Important for option 2
-Program only has 4 options to choose from for now
+Program only has 5 options to choose from for now
 
 # WHAT THE CODE DOES:
 0. Ask for buying preferences, working mode and count down
